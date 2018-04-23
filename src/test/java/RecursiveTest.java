@@ -6,6 +6,18 @@ public class RecursiveTest {
 
     @Test
     public void printEveryOther() {
+        int[] still = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        assertEquals("975", Recursive.printEveryOther(still, 5));
+        assertNull(Recursive.printEveryOther(null, 2));
+        assertEquals("86", Recursive.printEveryOther(still, 6));
+        assertEquals("", Recursive.printEveryOther(still, 451));
+        assertEquals("", Recursive.printEveryOther(new int[0], 0));
+        assertEquals("86420", Recursive.printEveryOther(still, 0));
+        try {
+            Recursive.printEveryOther(still, -1);
+        } catch (IllegalArgumentException a) {
+            assertTrue("Negative index throws IllegalArgumentException", true);
+        }
     }
 
     @Test

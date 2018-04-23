@@ -6,23 +6,15 @@ public class Recursive {
      * ending with the element at index k.
      * An example input arrary {1,2,3,4,5,6,7,8,9,10}, called with k=2, should output 9753
      */
-    public static void printEveryOther(final int[] ia, final int k) {
+    public static String printEveryOther(final int[] ia, final int k) {
+        String s = "";
         if (ia==null)
-            return;
-        if (k < 0)
-            printEveryOther(ia, k+2);
-        if (k <= ia.length) {
-            if (ia.length % 2 == k % 2) {
-                int[] oneShorter = Arrays.copyOf(ia, ia.length-1);
-                printEveryOther(oneShorter, k);
-                return;
-            }
-            System.out.print(ia[ia.length-1]);
-            if (ia.length - 1 != k) {
-                int[] twoShorter = Arrays.copyOf(ia, ia.length-2);
-                printEveryOther(twoShorter, k);
-            }
+            return null;
+        if (k < 0) throw new IllegalArgumentException("index must be greater or equal 0");
+        if (k < ia.length) {
+            s = printEveryOther(ia, k+2) + ia[k];
         }
+        return s;
     }
 
     /*
