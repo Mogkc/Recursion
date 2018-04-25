@@ -32,10 +32,10 @@ public class RecursiveTest {
         assertEquals("a*aron is kind.", Recursive.printStars("aaron is kind."));
         //Does star at consecutive letters at the end
         assertEquals("Enter the glen*n", Recursive.printStars("Enter the glenn"));
-        //Treats capital and lowercase letters alike
-        assertEquals("A*aron is smart.", Recursive.printStars("Aaron is smart."));
+        //Only splits letters with the same case
+        assertEquals("Aaron is smart.", Recursive.printStars("Aaron is smart."));
         //Doesn't skip any if there are multiple repetitions in a row
         assertEquals("Be quiet! Sh*h*h*h*h*h", Recursive.printStars("Be quiet! Shhhhhh"));
-        assertEquals("E*e*ew*w", Recursive.printStars("Eeeww"));
+        assertEquals("Ee*ew*w", Recursive.printStars("Eeeww"));
     }
 }

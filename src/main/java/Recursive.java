@@ -28,7 +28,7 @@ public class Recursive {
             return s;
         }
         String x = s.substring(0, 1);
-        if (Character.isLetter(x.charAt(0)) && x.equalsIgnoreCase(s.substring(1, 2))  ) {
+        if (Character.isLetter(x.charAt(0)) && x.equals(s.substring(1, 2))  ) {
             return x + "*" + printStars(s.substring(1) );
         } else return x + printStars(s.substring(1) );
     }
